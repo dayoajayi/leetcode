@@ -1,8 +1,4 @@
 from collections import Counter
-'''
-Given two strings s and t, return true if t is an anagram of s, and false otherwise.
-https://leetcode.com/problems/valid-anagram/
-'''
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -15,3 +11,9 @@ t = 'nagaram'
 
 sol = Solution()
 print(sol.isAnagram(s,t))
+
+
+'''
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+https://leetcode.com/problems/valid-anagram/
+'''

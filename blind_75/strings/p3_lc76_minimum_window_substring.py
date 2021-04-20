@@ -1,14 +1,4 @@
 from collections import Counter
-'''
-Given two strings s and t, return the minimum window in s which will contain all 
-the characters in t. If there is no such window in s that covers all characters in t,
- return the empty string "".
-
-Note that If there is such a window, it is guaranteed that there will always be only 
-one unique minimum window in s.
-
-https://leetcode.com/problems/minimum-window-substring/
-'''
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
@@ -20,6 +10,7 @@ class Solution:
         count = len(lookup)
 
         while end < S:
+            # move the end pointer to slide to the right    
             while end < S and count != 0:
                 if s[end] in lookup:
                     lookup[s[end]] -= 1
@@ -27,6 +18,7 @@ class Solution:
                         count -= 1
                 end+=1
             
+            # move the start pointer
             while start < end and count == 0:
                 if end-start < max:
                     max = end-start
@@ -44,3 +36,15 @@ t = "ABC"
 
 print(sol.minWindow(s,t))
 
+
+
+'''
+Given two strings s and t, return the minimum window in s which will contain all 
+the characters in t. If there is no such window in s that covers all characters in t,
+ return the empty string "".
+
+Note that If there is such a window, it is guaranteed that there will always be only 
+one unique minimum window in s.
+
+https://leetcode.com/problems/minimum-window-substring/
+'''
