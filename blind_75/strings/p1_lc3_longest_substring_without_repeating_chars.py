@@ -15,5 +15,6 @@ class Solution:
 
 sol = Solution()
 
-s = "abcabcbb"
+s = "abcabcbb"  
 print(sol.lengthOfLongestSubstring(s))
+# answer: 3

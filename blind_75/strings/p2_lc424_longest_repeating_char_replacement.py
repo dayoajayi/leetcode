@@ -24,4 +24,4 @@ sol = Solution()
 
 s, k = "ABAB", 2
 
-print(sol.characterReplacement(s,k))
+print(sol.characterReplacement(s,k))   # -> 4
