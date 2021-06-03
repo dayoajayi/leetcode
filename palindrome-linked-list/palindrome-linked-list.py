@@ -5,20 +5,26 @@
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: ListNode) -> bool:
-        nums = []
+        fast = slow = head
         
-        # store the linked list in an array
-        while head:
-            nums.append(head.val)
+        # find the mid node
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+        
+        # reverse the second half
+        node = None
+        while slow:
+            nxt = slow.next
+            slow.next = node
+            node = slow
+            slow = nxt
+        
+        # compare the first and second half nodes
+        # while node and head:
+        while node:           
+            if node.val != head.val:
+                return False #23
+            node = node.next
             head = head.next
-            
-        # initiate left and right pointers to check palindrome
-        l, r = 0, len(nums) - 1
-        
-        while l <= r:
-            if nums[l] != nums[r]:
-                return False
-            l += 1
-            r -= 1
-            
         return True
