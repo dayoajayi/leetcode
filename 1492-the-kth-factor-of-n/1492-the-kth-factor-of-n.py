@@ -7,3 +7,8 @@ class Solution:
                 return i
             
         return -1
+    
+'''
+Time: O(N)
+Space: O(1)
+'''
