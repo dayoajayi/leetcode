@@ -17,11 +17,14 @@ class Solution:
         
         return numberOfProvinces
         
-        
-        
+
         
         
 '''
+Time: O(N^2)
+Space: O(N)
+
+
 isConnected = [
                 [1,1,0],
                 [1,1,0],
