@@ -11,12 +11,22 @@ class Solution:
         
         for city in range(len(isConnected)):
             if city not in visited:
-                numberOfProvinces += 1
                 dfs(city)
-                
+                numberOfProvinces += 1
+        
+        
         return numberOfProvinces
-    
+        
+        
+        
+        
+        
 '''
-Time: O(N^2)
-Space: O(N)
+isConnected = [
+                [1,1,0],
+                [1,1,0],
+                [0,0,1]
+            ]
+
+
 '''
