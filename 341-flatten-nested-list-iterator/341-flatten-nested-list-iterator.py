@@ -20,20 +20,18 @@
 #        Return None if this NestedInteger holds a single integer
 #        """
 
-#from collections import deque
 class NestedIterator:
-    def __init__(self, nestedList: [NestedInteger]):        
-        
+    def __init__(self, nestedList: [NestedInteger]):
+                
         def flatten(nl):
-            for el in nl:
+            for el in nl: 
                 if el.isInteger():
                     self.q.append(el.getInteger())
                 else:
                     flatten(el.getList())
-                    
         self.q = deque()
         flatten(nestedList)
-        
+
     
     def next(self) -> int:
         return self.q.popleft()
@@ -44,9 +42,3 @@ class NestedIterator:
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []
 # while i.hasNext(): v.append(i.next())
-
-
-'''
-Time: O(N)
-Space: O(N)
-'''
