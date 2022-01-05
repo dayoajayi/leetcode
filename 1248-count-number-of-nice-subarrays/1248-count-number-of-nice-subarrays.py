@@ -12,7 +12,7 @@ class Solution:
             return result
         
         return atMost(k) - atMost(k-1)
-                    
-                
-        
-        
+'''
+T: O(N)
+S: O(1)
+'''
