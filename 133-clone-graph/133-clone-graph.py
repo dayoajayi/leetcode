@@ -9,22 +9,23 @@ class Node:
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         
-        dic = {}
+        oldToNew = {}
         
-        def dfs(node):
-            if not node: 
-                return
-            else:
-                node_copy = Node(node.val, [])
-                dic[node] = node_copy
-                for neighbor in node.neighbors:
-                    if neighbor in dic:
-                        node_copy.neighbors.append(dic[neighbor])
-                    else:
-                        node_copy.neighbors.append(dfs(neighbor))
-                return node_copy
+        def clone(node):
+            if not node:
+                return None
             
-        return dfs(node)
+            if node in oldToNew: 
+                return oldToNew[node]
+            
+            copy = Node(node.val)
+            oldToNew[node] = copy
+            
+            for neighbor in node.neighbors:
+                copy.neighbors.append(clone(neighbor))
+            return copy
+        
+        return clone(node)
     
 '''
 T: O(N), where N = E + V (edges and vertices)
