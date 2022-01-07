@@ -8,8 +8,25 @@ class Node:
 
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        return deepcopy(node)
-
-    '''
-    of course this would never fly in an interview!!!
-    '''
+        
+        dic = {}
+        
+        def dfs(node):
+            if not node: 
+                return
+            else:
+                node_copy = Node(node.val, [])
+                dic[node] = node_copy
+                for neighbor in node.neighbors:
+                    if neighbor in dic:
+                        node_copy.neighbors.append(dic[neighbor])
+                    else:
+                        node_copy.neighbors.append(dfs(neighbor))
+                return node_copy
+            
+        return dfs(node)
+    
+'''
+T: O(N), where N = E + V (edges and vertices)
+S: O(N)
+'''
