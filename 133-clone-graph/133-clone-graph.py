@@ -9,3 +9,7 @@ class Node:
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         return deepcopy(node)
+
+    '''
+    of course this would never fly in an interview!!!
+    '''
