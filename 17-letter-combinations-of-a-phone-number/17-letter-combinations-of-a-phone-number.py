@@ -1,21 +1,16 @@
 class Solution:
-    def letterCombinations(self, digits: str) -> List[str]:
+    def letterCombinations(self, digits: str) -> List[str]:        
         KEYPAD = {
-            "0": ["0"],
-            "1": ["1"],
-            "2": ["a", "b", "c"],
-            "3": ["d", "e", "f"],
-            "4": ["g", "h", "i"],
-            "5": ["j", "k", "l"],
-            "6": ["m", "n", "o"],
-            "7": ["p", "q", "r", "s"],
-            "8": ["t", "u", "v"],
-            "9": ["w", "x", "y", "z"]
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "pqrs",
+            "8": "tuv",
+            "9": "wxyz"
         }
         
-        allCombos = []
-        currentCombo = ["0"] * len(digits)
-                
         def comboHelper(idx):
             if idx == len(digits):
                 combo = "".join(currentCombo)
@@ -25,13 +20,16 @@ class Solution:
                 letters = KEYPAD[digit]
                 for letter in letters:
                     currentCombo[idx] = letter
-                    comboHelper(idx + 1)            
+                    comboHelper(idx + 1)                   
+        
+        allCombos = []
+        currentCombo = ["0"] * len(digits)
             
         if digits == "": return []
         comboHelper(0)
         return allCombos
-            
+             
 '''
-T: O()
-S: O()
+T: O(4^N)
+S: O(4^N)
 '''
