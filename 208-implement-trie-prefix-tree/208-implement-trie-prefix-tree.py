@@ -3,7 +3,6 @@ class TrieNode:
         self.children = collections.defaultdict(TrieNode)
         self.is_word = False
 
-
 class Trie:
 
     def __init__(self):
@@ -21,7 +20,8 @@ class Trie:
             current = current.children.get(letter)
             if current is None:
                 return False
-        return current.is_word                    
+        return current.is_word
+        
 
     def startsWith(self, prefix: str) -> bool:
         current = self.root
@@ -30,7 +30,7 @@ class Trie:
             if current is None: 
                 return False
         return True
-        
+            
 
 
 # Your Trie object will be instantiated and called as such:
