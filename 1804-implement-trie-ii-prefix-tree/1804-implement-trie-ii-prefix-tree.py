@@ -1,8 +1,8 @@
 class TrieNode:
     def __init__(self):
-        self.children = defaultdict(TrieNode)
-        self.prefixCount = 0
+        self.children = collections.defaultdict(TrieNode)
         self.wordCount = 0
+        self.prefixCount = 0
 
 class Trie:
 
@@ -24,7 +24,6 @@ class Trie:
             else:
                 current = current.children[letter]
         return current.wordCount
-            
 
     def countWordsStartingWith(self, prefix: str) -> int:
         current = self.root
@@ -34,6 +33,7 @@ class Trie:
             else:
                 current = current.children[letter]
         return current.prefixCount
+            
 
     def erase(self, word: str) -> None:
         current = self.root
